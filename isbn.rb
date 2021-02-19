@@ -15,7 +15,7 @@ def isbn_verify?(isbn_string)
   if isbn_string.length != 10 && x_exception == false
     return false
   end
-  # Non-numberic keys  
+  # Non-numeric keys  
   if isbn_string.count("A-Z") != 0
     return false
   end
