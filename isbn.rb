@@ -1,8 +1,10 @@
 def isbn_verify?(isbn_string)
 
+  # - STRING ALTERATIONS -
   # Allows X Exception
   x_exception = false
   if isbn_string[-1] == "X"
+    isbn_string[-1] = "0"
     x_exception = true
   end
   # Removes any dashes
@@ -12,8 +14,9 @@ def isbn_verify?(isbn_string)
   # Wrong length
   if isbn_string.length != 10 && x_exception == false
     return false
-  # Non-numeric character
-  elsif isbn_string.include? "/\w/"
+  end
+  # Non-numberic keys  ~~~~~ BROKEN ~~~~~~~
+  if isbn_string.include?("/\D/") == true
     return false
   end
 
@@ -54,3 +57,4 @@ def isbn_verify?(isbn_string)
     end
   end
 end
+p isbn_verify?("3-598-P1581-X")
